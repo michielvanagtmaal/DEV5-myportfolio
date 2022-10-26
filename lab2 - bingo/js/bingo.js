@@ -58,6 +58,7 @@ export default class Bingo {
       let card = new Card(this.cards[i]);
       card.render(i);
     }
+    
   }
 
   static checkWinner() {
