@@ -26,4 +26,4 @@ Result:
 
 `'Joris'`
 
-Ik heb het zelf nog nooit gehad en kan me geen situatie bedenken waarin ik het zou moeten gebruiken.
+Ik heb het zelf nog nooit nodig gehad en kan me geen situatie bedenken waarin ik het zou moeten gebruiken.
