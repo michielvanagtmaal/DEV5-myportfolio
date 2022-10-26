@@ -13,6 +13,11 @@ export default class Card {
     console.log("Marking card as done");
     console.log(target);
     // hint: use class .bingo__card--done
+    if (target.classList.contains("bingo__card--done")) {
+      target.classList.remove("bingo__card--done");
+    } else { 
+      target.classList.toggle("bingo__card--done");
+    }
   }
 
   render(counter) {
