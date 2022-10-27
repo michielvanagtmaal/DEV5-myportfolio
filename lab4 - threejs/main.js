@@ -47,6 +47,8 @@ const nameTexture = textureloaderName.load('/assets/textures/name.webp');
 const textureloaderPaal = new THREE.TextureLoader();
 const paalTexture = textureloaderPaal.load('/assets/textures/wood.jpeg');
 
+const textureloadSky = new THREE.TextureLoader();
+const skyTexture = textureloadSky.load('/assets/textures/sky.jpeg');
 
 // create a box
 const sand = new THREE.BoxGeometry(10, 10, 0.1);
@@ -184,6 +186,13 @@ paalMesh.position.z = 0.56;
 paalMesh.position.x = 1.45;
 paalMesh.position.y = 0;
 scene.add( paalMesh );
+
+const sky = new THREE.SphereGeometry(100, 32, 32);
+const skyMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+skyMaterial.map = skyTexture;
+skyMaterial.side = THREE.DoubleSide;
+const skyMesh = new THREE.Mesh( sky, skyMaterial );
+scene.add( skyMesh );
 
 
 
