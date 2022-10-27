@@ -26,30 +26,19 @@ const controls = new OrbitControls( camera, renderer.domElement );
 
 
 // texture loader
-const textureloaderGrass = new THREE.TextureLoader();
-const grassTexture = textureloaderGrass.load('/assets/textures/sand.jpeg');
-
-
-
-
-
-
-
-
-
-
-
+const textureloaderSand = new THREE.TextureLoader();
+const sandTexture = textureloaderSand.load('/assets/textures/sand.jpeg');
 
 // create a box
-const grass = new THREE.BoxGeometry(10, 10, 0.1);
-const grassMaterial = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
-grassMaterial.map = grassTexture;
-const grassMesh = new THREE.Mesh( grass, grassMaterial );
+const sand = new THREE.BoxGeometry(10, 10, 0.1);
+const sandMaterial = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
+sandMaterial.map = sandTexture;
+const sandMesh = new THREE.Mesh( sand, sandMaterial );
 // rotate the box
-grassMesh.rotation.x = Math.PI/2;
+sandMesh.rotation.x = Math.PI/2;
 // move the box
-grassMesh.position.y = -1;
-scene.add( grassMesh );
+sandMesh.position.y = -1;
+scene.add( sandMesh );
 
 
 
