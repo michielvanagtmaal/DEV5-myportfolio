@@ -4,9 +4,10 @@ import javascriptLogo from './javascript.svg'
 import * as THREE from 'three';
 //import orbit controls
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
-import { Material } from 'three';
+import { Loader, Material } from 'three';
 // import gltf loader
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
+
 
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera( 75, window.innerWidth / window.innerHeight, 0.1, 1000 );
@@ -197,6 +198,18 @@ scene.add( skyMesh );
 
 
 
+
+const loader = new GLTFLoader();
+
+loader.load("/assets/models/tree.glb", (gltf) => {
+  const tree = gltf.scene;
+  tree.position.set(0, -1, 0);
+  tree.scale.set(0.02, 0.02, 0.02);
+  tree.rotation.set(0, 0, 0);
+  scene.add(tree);
+});
+
+
 camera.position.z = 5;
 
 function animate() {
@@ -206,5 +219,6 @@ function animate() {
   renderer.render( scene, camera );
  
 };
+
 
 	animate();
