@@ -52,7 +52,7 @@ const textureloadSky = new THREE.TextureLoader();
 const skyTexture = textureloadSky.load('/assets/textures/sky.jpeg');
 
 // create a box
-const sand = new THREE.BoxGeometry(10, 10, 0.1);
+const sand = new THREE.BoxGeometry(50, 50, 0.1);
 const sandMaterial = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
 sandMaterial.map = sandTexture;
 const sandMesh = new THREE.Mesh( sand, sandMaterial );
@@ -218,6 +218,8 @@ for(let i = 0; i < 20; i++) {
 
 
 
+
+
 const loader = new GLTFLoader();
 
 loader.load("/assets/models/tree.glb", (gltf) => {
@@ -229,15 +231,16 @@ loader.load("/assets/models/tree.glb", (gltf) => {
 });
 
 
+camera.position.x = 5;
 camera.position.z = 5;
 
 function animate() {
-  
+  camera.position.x = Math.sin(Date.now() / 1000) * 4;
+  camera.position.y = Math.sin(Date.now() / 1000) * 0.5;
 
   requestAnimationFrame( animate );
-  renderer.render( scene, camera );
- 
+  controls.update();
+	renderer.render( scene, camera );
 };
-
 
 	animate();
