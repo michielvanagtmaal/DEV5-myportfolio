@@ -29,6 +29,10 @@ const controls = new OrbitControls( camera, renderer.domElement );
 const textureloaderSand = new THREE.TextureLoader();
 const sandTexture = textureloaderSand.load('/assets/textures/sand.jpeg');
 
+const textureloaderWall = new THREE.TextureLoader();
+const wallTexture = textureloaderWall.load('/assets/textures/wall.webp');
+
+
 // create a box
 const sand = new THREE.BoxGeometry(10, 10, 0.1);
 const sandMaterial = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
@@ -40,18 +44,35 @@ sandMesh.rotation.x = Math.PI/2;
 sandMesh.position.y = -1;
 scene.add( sandMesh );
 
+const wallBack = new THREE.PlaneGeometry(3, 2);
+const wallBackMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallBackMaterial.map = wallTexture;
+wallBackMaterial.side = THREE.DoubleSide;
+const wallBackMesh = new THREE.Mesh( wallBack, wallBackMaterial );
+wallBackMesh.position.z = -2;
+
+scene.add( wallBackMesh );
+
+const wallLeft = new THREE.PlaneGeometry(2, 2);
+const wallLeftMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallLeftMaterial.map = wallTexture;
+wallLeftMaterial.side = THREE.DoubleSide;
+const wallLeftMesh = new THREE.Mesh( wallLeft, wallLeftMaterial );
+wallLeftMesh.rotation.y = Math.PI/2;
+wallLeftMesh.position.x = -1.5;
+wallLeftMesh.position.z = -1;
+scene.add( wallLeftMesh );
 
 
 
 camera.position.z = 5;
 
 function animate() {
-  camera.position.x = 2;
-  camera.position.y = 1.01;
+  
 
   requestAnimationFrame( animate );
-  controls.update();
-	renderer.render( scene, camera );
+  renderer.render( scene, camera );
+ 
 };
 
 	animate();
