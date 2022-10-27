@@ -35,6 +35,11 @@ const wallTexture = textureloaderWall.load('/assets/textures/wall.webp');
 const textureloaderRoof = new THREE.TextureLoader();
 const roofTexture = textureloaderRoof.load('/assets/textures/roof.webp');
 
+const textureloaderSmall = new THREE.TextureLoader();
+const smallTexture = textureloaderSmall.load('/assets/textures/wallHorizontal.webp');
+
+const textureloaderNail = new THREE.TextureLoader();
+const nailTexture = textureloaderNail.load('/assets/textures/nail.webp');
 
 // create a box
 const sand = new THREE.BoxGeometry(10, 10, 0.1);
@@ -76,7 +81,7 @@ wallRightMesh.position.x = 1.5;
 wallRightMesh.position.z = -1.25;
 scene.add( wallRightMesh );
 
-const roof = new THREE.PlaneGeometry(3.3, 3);
+const roof = new THREE.BoxGeometry(3.2, 3, 0.05);
 const roofMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
 roofMaterial.map = roofTexture;
 roofMaterial.side = THREE.DoubleSide;
@@ -85,6 +90,79 @@ roofMesh.rotation.x = Math.PI/2;
 roofMesh.position.y = 1;
 roofMesh.position.z = -0.6;
 scene.add( roofMesh );
+
+const wallSmall = new THREE.PlaneGeometry(1.5, 0.75);
+const wallSmallMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallSmallMaterial.map = smallTexture;
+wallSmallMaterial.side = THREE.DoubleSide;
+const wallSmallMesh = new THREE.Mesh( wallSmall, wallSmallMaterial );
+wallSmallMesh.position.x = -0.75;
+wallSmallMesh.position.y = 0.625;
+wallSmallMesh.position.z = 0;
+scene.add(wallSmallMesh);
+
+
+const wallSmall2 = new THREE.PlaneGeometry(1.7, 0.75);
+const wallSmall2Material = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallSmall2Material.map = smallTexture;
+wallSmall2Material.side = THREE.DoubleSide;
+const wallSmall2Mesh = new THREE.Mesh( wallSmall2, wallSmall2Material );
+wallSmall2Mesh.position.x = -0.65;
+wallSmall2Mesh.position.y = -0.6;
+wallSmall2Mesh.position.z = 0;
+scene.add(wallSmall2Mesh);
+
+
+const wallH = new THREE.PlaneGeometry(0.5, 1.5);
+const wallHMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallHMaterial.map = wallTexture;
+wallHMaterial.side = THREE.DoubleSide;
+const wallHMesh = new THREE.Mesh( wallH, wallHMaterial );
+wallHMesh.position.z = 0.01;
+wallHMesh.position.x = -1.3;
+wallHMesh.rotation.z = 0.1;
+
+scene.add( wallHMesh );
+
+const wallH2 = new THREE.PlaneGeometry(0.7, 1.2);
+const wallH2Material = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallH2Material.map = wallTexture;
+wallH2Material.side = THREE.DoubleSide;
+const wallH2Mesh = new THREE.Mesh( wallH2, wallH2Material );
+wallH2Mesh.position.z = 0.01;
+wallH2Mesh.position.x = -0.2;
+wallH2Mesh.rotation.z = -0.1;
+
+scene.add( wallH2Mesh );
+
+const nail = new THREE.CircleGeometry(0.03, 32);
+const nailMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+nailMaterial.map = nailTexture;
+nailMaterial.side = THREE.DoubleSide;
+const nailMesh = new THREE.Mesh( nail, nailMaterial );
+nailMesh.position.z = 0.011;
+nailMesh.position.x = -1.3;
+nailMesh.position.y = 0.4;
+
+scene.add( nailMesh );
+
+const nail2 = new THREE.CircleGeometry(0.03, 32);
+const nail2Material = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+nail2Material.map = nailTexture;
+nail2Material.side = THREE.DoubleSide;
+const nail2Mesh = new THREE.Mesh( nail2, nail2Material );
+nail2Mesh.position.z = 0.011;
+nail2Mesh.position.x = -0.1;
+nail2Mesh.position.y = 0.49;
+
+scene.add( nail2Mesh );
+
+
+
+
+
+
+
 
 
 camera.position.z = 5;
