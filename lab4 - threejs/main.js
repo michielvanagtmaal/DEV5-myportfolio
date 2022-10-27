@@ -32,6 +32,9 @@ const sandTexture = textureloaderSand.load('/assets/textures/sand.jpeg');
 const textureloaderWall = new THREE.TextureLoader();
 const wallTexture = textureloaderWall.load('/assets/textures/wall.webp');
 
+const textureloaderRoof = new THREE.TextureLoader();
+const roofTexture = textureloaderRoof.load('/assets/textures/roof.webp');
+
 
 // create a box
 const sand = new THREE.BoxGeometry(10, 10, 0.1);
@@ -63,6 +66,25 @@ wallLeftMesh.position.x = -1.5;
 wallLeftMesh.position.z = -1;
 scene.add( wallLeftMesh );
 
+const wallRight = new THREE.PlaneGeometry(1.5, 2);
+const wallRightMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+wallRightMaterial.map = wallTexture;
+wallRightMaterial.side = THREE.DoubleSide;
+const wallRightMesh = new THREE.Mesh( wallRight, wallRightMaterial );
+wallRightMesh.rotation.y = Math.PI/2;
+wallRightMesh.position.x = 1.5;
+wallRightMesh.position.z = -1.25;
+scene.add( wallRightMesh );
+
+const roof = new THREE.PlaneGeometry(3.3, 3);
+const roofMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+roofMaterial.map = roofTexture;
+roofMaterial.side = THREE.DoubleSide;
+const roofMesh = new THREE.Mesh( roof, roofMaterial );
+roofMesh.rotation.x = Math.PI/2;
+roofMesh.position.y = 1;
+roofMesh.position.z = -0.6;
+scene.add( roofMesh );
 
 
 camera.position.z = 5;
