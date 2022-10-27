@@ -41,6 +41,10 @@ const smallTexture = textureloaderSmall.load('/assets/textures/wallHorizontal.we
 const textureloaderNail = new THREE.TextureLoader();
 const nailTexture = textureloaderNail.load('/assets/textures/nail.webp');
 
+const textureloaderName = new THREE.TextureLoader();
+const nameTexture = textureloaderName.load('/assets/textures/name.webp');
+
+
 // create a box
 const sand = new THREE.BoxGeometry(10, 10, 0.1);
 const sandMaterial = new THREE.MeshBasicMaterial( { color: 0xaaaaaa } );
@@ -158,6 +162,14 @@ nail2Mesh.position.y = 0.49;
 scene.add( nail2Mesh );
 
 
+const nameBg = new THREE.BoxGeometry(1, 0.5, 0.05);
+const nameBgMaterial = new THREE.MeshBasicMaterial( {color: 0xffffff} );
+nameBgMaterial.map = nameTexture;
+const nameBgMesh = new THREE.Mesh( nameBg, nameBgMaterial );
+nameBgMesh.position.z = 0.011;
+nameBgMesh.position.x = 1;
+nameBgMesh.position.y = 1;
+scene.add( nameBgMesh );
 
 
 
