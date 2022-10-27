@@ -44,6 +44,9 @@ const nailTexture = textureloaderNail.load('/assets/textures/nail.webp');
 const textureloaderName = new THREE.TextureLoader();
 const nameTexture = textureloaderName.load('/assets/textures/name.webp');
 
+const textureloaderPaal = new THREE.TextureLoader();
+const paalTexture = textureloaderPaal.load('/assets/textures/wood.jpeg');
+
 
 // create a box
 const sand = new THREE.BoxGeometry(10, 10, 0.1);
@@ -162,17 +165,25 @@ nail2Mesh.position.y = 0.49;
 scene.add( nail2Mesh );
 
 
-const nameBg = new THREE.BoxGeometry(1, 0.5, 0.05);
+const nameBg = new THREE.BoxGeometry(0.6, 0.3, 0.05);
 const nameBgMaterial = new THREE.MeshBasicMaterial( {color: 0xffffff} );
 nameBgMaterial.map = nameTexture;
 const nameBgMesh = new THREE.Mesh( nameBg, nameBgMaterial );
-nameBgMesh.position.z = 0.011;
-nameBgMesh.position.x = 1;
-nameBgMesh.position.y = 1;
+nameBgMesh.position.z = 0.68;
+nameBgMesh.position.x = 1.45;
+nameBgMesh.position.y = 0.5;
 scene.add( nameBgMesh );
 
 
-
+const paal = new THREE.CylinderGeometry(0.1, 0.1, 2);
+const paalMaterial = new THREE.MeshBasicMaterial( {color: 0xaaaaaa} );
+paalMaterial.map = paalTexture;
+paalMaterial.side = THREE.DoubleSide;
+const paalMesh = new THREE.Mesh( paal, paalMaterial );
+paalMesh.position.z = 0.56;
+paalMesh.position.x = 1.45;
+paalMesh.position.y = 0;
+scene.add( paalMesh );
 
 
 
