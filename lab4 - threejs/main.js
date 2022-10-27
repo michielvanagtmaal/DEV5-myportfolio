@@ -195,7 +195,26 @@ skyMaterial.side = THREE.DoubleSide;
 const skyMesh = new THREE.Mesh( sky, skyMaterial );
 scene.add( skyMesh );
 
-
+const gltfLoader = new GLTFLoader();
+const addCloud = (x, y, z, s) => {
+	let cloud;
+	gltfLoader.load('/assets/models/cloud.glb', (gltf) => {
+		cloud = gltf.scene;
+		cloud.position.set(x, 5, z);
+		cloud.scale.set(0.5, 0.5, 0.5);
+		scene.add(cloud);
+	});
+}
+for(let i = 0; i < 20; i++) {
+	let sign = Math.random() < 0.5 ? 1 : -1;
+	let x = Math.random() * 40 * sign;
+	sign = Math.random() < 0.5 ? 1 : -1;
+	let y = Math.random() * 40 * sign;
+	sign = Math.random() < 0.5 ? 1 : -1;
+	let z = Math.random() * 40 * sign;
+	let s = Math.random() * 5;
+	addCloud(x, y, z, s);
+}
 
 
 
