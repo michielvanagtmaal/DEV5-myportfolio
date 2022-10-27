@@ -9,7 +9,7 @@ import * as THREE from 'three';
 
 			const renderer = new THREE.WebGLRenderer();
       const loader = new THREE.TextureLoader();
-      scene.background = loader.load("/assets/textures/sky.webp");
+      scene.background = loader.load("/assets/textures/sky.jpeg");
 			renderer.setSize( window.innerWidth, window.innerHeight );
 			document.body.appendChild( renderer.domElement );
 
