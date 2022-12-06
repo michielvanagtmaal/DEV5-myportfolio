@@ -26,6 +26,15 @@ const nextVideo = () => {
     animation.value = "animate__fadeIn";
 }
 
+// const nextVideo = () => {
+ //   animation.value = 'animate__fadeOut'
+ //   setTimeout(() => {
+  //      videos.videos.shift();
+  //      src.value = videos.videos[0].video;
+  //      animation.value = 'animate__fadeIn'
+ //   }, 1000);
+ // src.value = videos.videos[1].video; }
+
 
 onMounted(() => {
   console.log('VideoPlayer.vue mounted')

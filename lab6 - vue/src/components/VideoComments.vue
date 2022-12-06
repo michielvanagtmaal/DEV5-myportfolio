@@ -1,8 +1,8 @@
 <script setup>
 import { onMounted, reactive, ref } from 'vue';
 
-let users = reactive ({users: [] });
-let texts = reactive ({texts: [] });
+let username = reactive ([]);
+let texts = reactive ([]);
 
 // onmounted
 onMounted(() => {
@@ -10,12 +10,17 @@ onMounted(() => {
     fetch(api_url)
     .then(response => response.json())
     .then(data => {
-        user.value = data.users[0].user;
-        text.value = data.texts[0].text;
+      username.value = data[0].user;
+      for (let i = 0; i < data.length; i++) {
+        if (data[i].user == username.value) {
+          texts.push(data[i].text);
+          console.log(username.value);
+        }
+      }
 
       
 
-    });
+    })
 });
 
 
