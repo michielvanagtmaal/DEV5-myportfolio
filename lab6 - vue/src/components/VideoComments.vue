@@ -27,9 +27,9 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="video__comments">
-   <h4> {{ user }}joris</h4>
-   <p> {{ text }}comment van joris</p>
+  <div class="video__comments" v-for="text in texts" :key="text">
+   <h4> {{ username.value }} </h4>
+   <p> {{ text }} </p>
    
 
 
