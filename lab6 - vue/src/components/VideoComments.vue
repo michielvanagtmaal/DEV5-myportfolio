@@ -23,10 +23,27 @@ onMounted(() => {
     })
 });
 
+const sendMessage = () => {
+  const api_url = 'https://lab5-p379.onrender.com/api/v1/messages/';
+  fetch(api_url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user: username.value,
+      text: texts[texts.length - 1]
+    })
+  })
+
+}
+
 let comment = "";
 const addComment = () => {
   texts.push(comment);
+  sendMessage();
 }
+
 
 
 </script>
