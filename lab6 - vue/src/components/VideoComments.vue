@@ -23,18 +23,27 @@ onMounted(() => {
     })
 });
 
+let comment = "";
+const addComment = () => {
+  texts.push(comment);
+}
+
 
 </script>
 
 <template>
-  <div class="video__comments" v-for="text in texts" :key="text">
+  <div class="video__comments">
+  <div class="container" v-for="text in texts" :key="text">
    <h4> {{ username.value }} </h4>
    <p> {{ text }} </p>
+  </div>
    
 
-
-  <input type="text" placeholder="type your comment..." >
-  <button>Add</button>
+  <div class="input">
+    
+  <input type="text" v-model="comment" placeholder="type your comment..." >
+  <button @click="addComment">Add</button>
+</div>
 </div>
   
 </template>
