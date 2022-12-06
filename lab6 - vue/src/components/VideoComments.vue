@@ -69,4 +69,15 @@ const addComment = () => {
     .video__comments {
         padding: 0 1rem;
     }
+
+
+    .container p {
+      margin-top: -17px;
+      padding-bottom: 3px;
+    }
+
+    .input {
+      background-color: purple;
+      padding: 10px;
+    }
 </style>
