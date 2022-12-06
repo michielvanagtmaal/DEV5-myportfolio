@@ -28,10 +28,14 @@ onMounted(() => {
 
 <template>
   <div class="video__comments">
-   <h4> {{ user }}</h4>
-   <p> {{ text }}</p>
+   <h4> {{ user }}joris</h4>
+   <p> {{ text }}comment van joris</p>
    
-  </div>
+
+
+  <input type="text" placeholder="type your comment..." >
+  <button>Add</button>
+</div>
   
 </template>
 
