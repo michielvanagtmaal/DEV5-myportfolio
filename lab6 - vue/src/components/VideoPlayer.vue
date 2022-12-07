@@ -10,7 +10,7 @@ let animation = ref('');
 // onmounted
 
 onMounted(() => {
-  let api_url = 'http://127.0.0.1:5173/tiktok.json';
+  let api_url = '/tiktok.json';
     fetch(api_url)
     .then(response => response.json())
     .then(data => {

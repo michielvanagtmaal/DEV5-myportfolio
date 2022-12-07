@@ -206,12 +206,12 @@ const addCloud = (x, y, z, s) => {
 	});
 }
 for(let i = 0; i < 20; i++) {
-	let sign = Math.random() < 0.5 ? 1 : -1;
-	let x = Math.random() * 40 * sign;
-	sign = Math.random() < 0.5 ? 1 : -1;
-	let y = Math.random() * 40 * sign;
-	sign = Math.random() < 0.5 ? 1 : -1;
-	let z = Math.random() * 40 * sign;
+	let randomPos = Math.random() < 0.5 ? 1 : -1;
+	let x = Math.random() * 40 * randomPos;
+	randomPos = Math.random() < 0.5 ? 1 : -1;
+	let y = Math.random() * 40 * randomPos;
+	randomPos = Math.random() < 0.5 ? 1 : -1;
+	let z = Math.random() * 40 * randomPos;
 	let s = Math.random() * 5;
 	addCloud(x, y, z, s);
 }
